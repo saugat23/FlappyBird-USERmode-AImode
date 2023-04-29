@@ -1,0 +1,166 @@
+@font-face {
+  font-family: "Flappy Bird Regular";
+  src: url("./fonts/FlappyBirdy.ttf");
+}
+
+@font-face {
+  font-family: "Flappy Bird Number";
+  src: url("./fonts/Flappy-Bird-Number.ttf");
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Flappy Bird Regular", sans-serif;
+  background: url("./graphics/background.png");
+  background-color: rgba(0, 0, 0, 0.6);
+  background-position: initial;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#logodiv {
+  margin-top: 12rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#logo {
+  width: 24rem;
+}
+
+#usermode {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 11rem;
+  background-color: #ff2406;
+  padding: 0.6rem 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border: 4px solid white;
+  box-shadow: 1px 4px 2px 2px #831a1f;
+  cursor: pointer;
+}
+
+#aimode {
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 11rem;
+  background-color: #ff2406;
+  padding: 0.6rem 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border: 4px solid white;
+  box-shadow: 1px 4px 2px 2px #831a1f;
+  cursor: pointer;
+}
+
+#bird {
+  --bird-top: -1000;
+  --bird-size: 70px;
+  position: absolute;
+  width: var(--bird-size);
+  height: calc(var(--bird-size)-1px);
+  left: var(--bird-size);
+  top: calc(var(--bird-top) * 1px);
+}
+
+#endmenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: center;
+  padding: 4px;
+  width: 22rem;
+  height: 16rem;
+  z-index: 1000;
+}
+
+#gameoverlogo {
+  width: 20rem;
+}
+
+#endmenu > * {
+  margin: 10px;
+}
+
+#endmenu > small {
+  font-size: 0.8rem;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+
+#livescore {
+  font-family: "Flappy Bird Number";
+}
+
+.pipe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(var(--pipe-width) * 1px);
+  left: calc(var(--pipe-left) * 1px);
+}
+
+.pipe > .segment {
+  position: absolute;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    #af4d58 0%,
+    #af4d58 10%,
+    #bb6970 10%,
+    #bb6970 20%,
+    #af4d58 20%,
+    #af4d58 30%,
+    #9f2936 30%,
+    #9f2936 40%,
+    #af4d58 40%,
+    #af4d58 50%,
+    #9f2936 50%,
+    #9f2936 60%,
+    #9f2936 60%,
+    #9f2936 70%,
+    #9f2936 70%,
+    #9f2936 80%,
+    #5b161f 80%,
+    #5b161f 90%,
+    #5b161f 90%,
+    #5b161f 100%
+  );
+  border: 4px solid #000000;
+  /* box-shadow: 30px 0px 25px #d19393 inset; */
+}
+
+.pipe > .top {
+  top: 0;
+  bottom: calc(var(--hole-top) * 1px);
+}
+
+.pipe > .bottom {
+  bottom: 0;
+  top: calc(100vh - (var(--hole-top) * 1px) + calc(var(--hole-height) * 1px));
+}
+
+.hide {
+  display: none;
+}
